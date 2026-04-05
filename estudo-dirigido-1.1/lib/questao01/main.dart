@@ -5,10 +5,10 @@ class Pessoa {
   
   Pessoa(this._name ,this._idade){
       if(this._name == ""){
-        throw ("Nome não pode ser vazio.");
+        throw ArgumentError("Nome não pode ser vazio.");
       } 
       if(this._idade <= 0){
-        throw("Idade tem que ser maior que zero.");
+        throw ArgumentError("Idade tem que ser maior que zero.");
       }
   }
   void exibirDados(){

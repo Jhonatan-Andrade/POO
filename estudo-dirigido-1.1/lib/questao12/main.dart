@@ -1,27 +1,24 @@
 
 class Circulo {
-  static const double PI = 3.14;
-  final double raio;
-  final String cor;
+  static const double PI = 3.14159;
+  double _raio;
+  String _cor;
 
-  Circulo(this.raio, this.cor)
-      : assert(raio > 0, 'O raio deve ser maior que zero.'),
-        assert(cor.isNotEmpty, 'A cor não pode ser vazia.');
-
-  double calcularArea() {
-    return PI * raio * raio;
+  Circulo(this._raio, this._cor){
+    if (_raio < 0) throw ArgumentError('O raio não pode ser negativo.');
+    if (_cor.isEmpty) throw ArgumentError('A cor não pode ser vazia.');
   }
 
-  double calcularPerimetro() {
-    return 2 * PI * raio;
-  }
+  double calcularArea(){return PI * (_raio * _raio);} //(A = pi * r^2)
 
-  void exibirResumo() {
+  double calcularPerimetro(){return 2 * PI * _raio;} //(C = 2 * pi * r)
+
+  void exibirResumo(){
     print('Resumo do Círculo');
-    print('Raio: ${raio.toStringAsFixed(2)}');
-    print('Cor: $cor');
+    print('Raio: ${_raio.toStringAsFixed(2)}');
+    print('Cor: $_cor');
     print('Área: ${calcularArea().toStringAsFixed(2)}');
-    print('Perímetro: ${calcularPerimetro().toStringAsFixed(2)}');
+    print('Perímetro: ${calcularPerimetro().toStringAsFixed(2)}/n');
   }
 }
 
@@ -31,9 +28,6 @@ void main() {
   Circulo circulo3 = Circulo(2.5, 'Verde');
 
   circulo1.exibirResumo();
-  print(''); 
   circulo2.exibirResumo();
-  print('');
   circulo3.exibirResumo();
- 
 }

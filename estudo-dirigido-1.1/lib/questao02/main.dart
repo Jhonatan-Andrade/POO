@@ -5,13 +5,13 @@ class Relogio {
   
   Relogio(this._hora ,this._minuto,this._segundo){
       if(this._hora < 0 && this._hora > 23 ){
-        throw ("Horas deve estar entre 0 e 23.");
+        throw ArgumentError("Horas deve estar entre 0 e 23.");
       } 
       if(this._minuto < 0 && this._minuto > 59){
-        throw("Minuto deve estar entre 0 e 59.");
+        throw ArgumentError("Minuto deve estar entre 0 e 59.");
       }
       if(this._segundo < 0 && this._segundo > 59){
-        throw("Segundo deve estar entre 0 e 59.");
+        throw ArgumentError("Segundo deve estar entre 0 e 59.");
       }
   }
   void exibirHorario(){

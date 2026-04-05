@@ -4,28 +4,27 @@ class Quadrado {
 
   Quadrado(this.lado, this.caractere) {
     if (lado <= 0) {
-      throw('O lado do quadrado deve ser maior que 0.');
+      throw ArgumentError('O lado do quadrado deve ser maior que 0.');
     }
-    if (caractere.isEmpty) {
-      throw('O caractere não pode ser vazio.');
-    }
-    if (caractere.length != 1) {
-      throw('O caractere usado no desenho deve ter apenas 1 símbolo.');
+    if (caractere.isEmpty || caractere.length != 1) {
+      throw ArgumentError('O caractere não pode ser vazio e deve ter apenas 1 símbolo..');
     }
   }
 
   double calcularArea() {
+    //A = lado²
     return lado * lado;
   }
 
   double calcularPerimetro() {
+    //P = 4 * lado
     return 4 * lado;
   }
 
   void desenhar() {
     print('\nDesenho do Quadrado (lado: ${lado.toStringAsFixed(1)}, caractere: "$caractere"):');
     
-    int intLado = lado.round(); 
+    int intLado = lado.round(); // Arredonda o lado para o inteiro mais próximo
 
     if (intLado == 0) {
       print('(Não é possível desenhar um quadrado com lado arredondado para 0)');
@@ -53,8 +52,7 @@ class Quadrado {
   }
 
   bool ehIgual(Quadrado outroQuadrado) {
-    const double epsilon = 0.000001;
-    return (lado - outroQuadrado.lado).abs() < epsilon && caractere == outroQuadrado.caractere;
+    return lado == outroQuadrado.lado ;
   }
 }
 

@@ -5,13 +5,13 @@ class Data {
 
   Data(this._dia, this._mes, this._ano) {
     if (this._dia <= 0 && this._dia > 31) {
-      throw ("Dia deve estar entre 1 e 31.");
+      throw ArgumentError("Dia deve estar entre 1 e 31.");
     }
     if (this._mes <= 0 && this._mes > 12) {
-      throw ("Mes deve estar entre 1 e 12.");
+      throw ArgumentError("Mes deve estar entre 1 e 12.");
     }
     if (this._ano <= 0) {
-      throw ("Ano deve ser maior que 0");
+      throw ArgumentError("Ano deve ser maior que 0");
     }
   }
 

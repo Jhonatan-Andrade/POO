@@ -13,18 +13,10 @@ class Endereco {
     this._estado,
     this._cep,
   ) {
-    if (_rua.isEmpty) {
-      throw ArgumentError('A rua não pode ser vazia.');
-    }
-    if (_numero.isEmpty) {
-      throw ArgumentError('O número não pode ser vazio.');
-    }
-    if (_cidade.isEmpty) {
-      throw ArgumentError('A cidade não pode ser vazia.');
-    }
-    if (_estado.isEmpty) {
-      throw ArgumentError('O estado não pode ser vazio.');
-    }
+    if (_rua.isEmpty)throw ArgumentError('A rua não pode ser vazia.');
+    if (_numero.isEmpty)throw ArgumentError('O número não pode ser vazio.');
+    if (_cidade.isEmpty)throw ArgumentError('A cidade não pode ser vazia.');
+    if (_estado.isEmpty)throw ArgumentError('O estado não pode ser vazio.');
   }
 
   void exibirEndereco() {

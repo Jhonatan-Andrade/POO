@@ -6,14 +6,12 @@ class Cofrinho {
   int _quantidadeDepositos;
 
   Cofrinho(this._saldo) : _quantidadeDepositos = 0 {
-    if (_saldo < 0) {
-      throw 'O saldo inicial do cofrinho deve ser maior ou igual a 0. Valor recebido: $_saldo';
-    }
+    if (_saldo < 0) throw ArgumentError('O saldo inicial do cofrinho deve ser maior ou igual a 0.');
   }
 
   void depositar(double valor) {
     if (valor <= 0) {
-      throw 'O valor do depósito deve ser maior que 0. Valor recebido: $valor';
+      throw ArgumentError('O valor do depósito deve ser maior que 0');
     }
     _saldo += valor;
     _quantidadeDepositos++;
@@ -27,8 +25,7 @@ class Cofrinho {
     print('Número de depósitos: $_quantidadeDepositos');
     _saldo = 0.0;
     _quantidadeDepositos = 0;
-    print('\nCofrinho zerado. Saldo atual: \$${_saldo.toStringAsFixed(2)}');
-
+    print('\nCofrinho resetado. Saldo atual: \$${_saldo.toStringAsFixed(2)}');
   }
 
   void exibirSaldo() {

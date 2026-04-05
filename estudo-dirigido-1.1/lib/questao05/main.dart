@@ -5,10 +5,10 @@ class Aluno {
 
   Aluno(this._nome,this._nota1,this._nota2){
     if(_nota1 < 0 || _nota1 > 10 ){
-      throw("Primeira nota devem estar entre 0 e 10");
+      throw ArgumentError("Primeira nota devem estar entre 0 e 10");
     }
     if(_nota2 < 0 || _nota2 > 10 ){
-      throw("Sergunda nota devem estar entre 0 e 10");
+      throw ArgumentError("Sergunda nota devem estar entre 0 e 10");
     }
     
   }

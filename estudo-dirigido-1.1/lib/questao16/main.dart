@@ -4,17 +4,10 @@ class Personagem {
   int _ataque;
 
   Personagem(this._nome,this._vida,this._ataque) {
-    if (_nome.isEmpty) {
-      throw('O nome do personagem não pode ser vazio.');
-    }
-    if (_vida <= 0) {
-      throw('A vida do personagem deve ser maior que 0.');
-    }
-    if (_ataque <= 0) {
-      throw('O ataque do personagem deve ser maior que 0.');
-    }
+    if (_nome.isEmpty) throw ArgumentError('O nome do personagem não pode ser vazio.');
+    if (_vida <= 0) throw ArgumentError('A vida do personagem deve ser maior que 0.');
+    if (_ataque <= 0) throw ArgumentError('O ataque do personagem deve ser maior que 0.');
   }
-
 
   void atacar(Personagem inimigo) {
     if (!estaVivo()) {
@@ -29,26 +22,21 @@ class Personagem {
     print('$_nome ataca ${inimigo._nome} que sofre $_ataque de dano');
     inimigo._vida -= _ataque;
 
-
-    if (inimigo._vida < 0) {
-      inimigo._vida = 0;
-    }
+    if (inimigo._vida < 0) inimigo._vida = 0;
 
     print('${inimigo._nome} agora tem ${inimigo._vida} de vida.');
-    if (!inimigo.estaVivo()) {
-      print('${inimigo._nome} foi derrotado');
-    }
-  }
 
+    if (!inimigo.estaVivo()) print('${inimigo._nome} foi derrotado');
+    
+  }
 
   void exibirStatus() {
     print('Status de $_nome');
     print('Vida: $_vida');
     print('Ataque: $_ataque');
-    print('Está Vivo: ${estaVivo() ? 'Sim' : 'Não'}');
-    print('\n');
-  }
+    print('Está Vivo: ${estaVivo() ? 'Sim' : 'Não'}\n');
 
+  }
 
   bool estaVivo() {
     return _vida > 0;
@@ -56,11 +44,8 @@ class Personagem {
 }
 
 void main() {
-  Personagem heroi;
-  Personagem monstro;
-
-  heroi = Personagem('mago',90,  20);
-  monstro = Personagem('goblin',100,18);
+  Personagem heroi = Personagem('mago',90,  20);
+  Personagem monstro = Personagem('goblin',100,18);
  
   print('Início da Batalha');
   heroi.exibirStatus();
@@ -73,17 +58,12 @@ void main() {
 
     if (heroi.estaVivo()) {
       heroi.atacar(monstro);
-      if (!monstro.estaVivo()) {
-        break; 
-      }
+      if (!monstro.estaVivo()) break; 
     }
 
-  
     if (monstro.estaVivo()) {
       monstro.atacar(heroi);
-      if (!heroi.estaVivo()) {
-        break; 
-      }
+      if (!heroi.estaVivo()) break; 
     }
 
     turno++;

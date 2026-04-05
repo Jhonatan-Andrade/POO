@@ -7,7 +7,7 @@ class Lampada {
   
 
   void ligar (){
-     // quantidadeLigacoes inicia em 0 logo tem que subitrair por 4 .
+     // quantidadeLigacoes inicia em 0 logo tem que subitrair por 4 .(0,1,2,3,4)
     if(_quantidadeLigacoes >= 4 ){
       _ligada = false ;
       _queimada = true;
@@ -32,7 +32,7 @@ class Lampada {
   void exibirEstado(){
 
     print("\n\nA lâmpada \n\t- Está ${_ligada ? "ligada" : "desligada"}.");
-    // quantidadeLigacoes inicia em 0 logo tem que subitrair por + 1.
+    // quantidadeLigacoes inicia em 0 logo tem que por + 1.
     print("\t- Foi ligada ${_quantidadeLigacoes + 1} X."); 
     print("\t- E ${_queimada ?"está queimada":"não esta queimada"}.");
   }

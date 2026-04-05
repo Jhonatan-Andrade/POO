@@ -13,13 +13,14 @@ class Endereco {
     this._cidade,
     this._estado,
     this._cep,
-  )  : assert(_rua.isNotEmpty, 'A rua não pode ser vazia.'),
-       assert(_numero > 0, 'O número deve ser maior que 0.'),
-       assert(_bairro.isNotEmpty, 'O bairro não pode ser vazio.'),
-       assert(_cidade.isNotEmpty, 'A cidade não pode ser vazia.'),
-       assert(_estado.isNotEmpty, 'O estado não pode ser vazio.'),
-       assert(_cep > 0, 'O CEP não pode ser vazio e deve ser um número positivo.');
-
+  ){
+    if (_rua.isEmpty) throw ArgumentError('A rua não pode ser vazia.');
+    if (_numero <= 0) throw ArgumentError('O número deve ser maior que 0.');
+    if (_bairro.isEmpty) throw ArgumentError('O bairro não pode ser vazio.');
+    if (_cidade.isEmpty) throw ArgumentError('A cidade não pode ser vazia.');
+    if (_estado.isEmpty) throw ArgumentError('O estado não pode ser vazio.');
+    if (_cep <= 0) throw ArgumentError('O CEP não pode ser vazio e deve ser um número positivo.');
+  }
 
   void exibirEndereco() {
     final String cepString = _cep.toString().padLeft(8, '0');

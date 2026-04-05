@@ -1,7 +1,8 @@
 
 class Contador {
-  int _valor = 0;
+  int _valor;
 
+  Contador() : _valor = 0;
   void incrementar() {
     _valor++;
     print('Contador: $_valor');

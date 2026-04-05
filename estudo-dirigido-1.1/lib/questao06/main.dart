@@ -7,16 +7,16 @@ class Produto {
 
   Produto(this._codigo,this._nome,this._precoUnitario,this._quantidade){
       if(this._codigo <=0){
-        throw ("Codigo não pode ser menor ou igual 0.");
+        throw ArgumentError("Codigo não pode ser menor ou igual 0.");
       } 
       if(this._nome == ""){
-        throw ("Nome não pode ser vazio.");
+        throw ArgumentError("Nome não pode ser vazio.");
       } 
       if(this._precoUnitario <= 0){
-        throw ("Preco não pode ser menor ou igual 0.");
+        throw ArgumentError("Preco não pode ser menor ou igual 0.");
       }
       if(this._quantidade <= 0){
-        throw ("Quantidade não pode ser menor ou igual 0.");
+        throw ArgumentError("Quantidade não pode ser menor ou igual 0.");
       }
   }
   double calcularDesconto(){
