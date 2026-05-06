@@ -22,9 +22,9 @@ A organização dos arquivos segue a estrutura abaixo:
 ./
 ├── estudo-dirigido-1.1/
 │   ├── ED1 - Lista de Exercícios.pdf  
-│   └── src/                          
-│       ├── Questao01/               
-│       ├── Questao02/                
+│   └── lib/                          
+│       ├── questao01/               
+│       ├── questao02/                
 │       └── ...                       
 └── README.md            
 ```
